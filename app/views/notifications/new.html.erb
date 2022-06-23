@@ -1,0 +1,18 @@
+<h2>New Notification</h2>
+<div class="form">
+ <%= form_with model: @category do |f| %>
+
+  <div>
+    <%= f.label :notifiable_type %>
+    <%= f.text_field :notifiable_type %>
+  </div><br>
+   <div>
+    <%= f.label :message %>
+    <%= f.text_field :message %>
+  </div><br>
+  
+
+
+  <%= f.submit 'submit' %>
+  <% end %>
+</div>
