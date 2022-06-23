@@ -1,0 +1,41 @@
+<h1>Booking Details</h1>
+
+<table>
+<thead>
+  <th>Event Name</th>
+  <th>Start</th>
+  <th>End</th>
+  <th>Location</th>
+  <th>City</th>
+  <th>Category</th>
+
+  <th>User Name</th>
+  <th>Phone</th>
+  <th>Email</th>
+    
+</thead>
+<tbody>
+  <tr>
+    <td><%= @booking.event.name %></td>
+    <td><%= @booking.event.start_time %></td>
+    <td><%= @booking.event.end_time %></td>
+    <td><%= @booking.event.location.name %></td>
+    <td><%= @booking.event.location.city.name %></td>
+    <td><%= @booking.event.category.name %></td>
+
+    <td><%= @booking.user.name %></td>
+    <td><%= @booking.user.phone %></td>
+    <td><%= @booking.user.email %></td>
+    
+  </tr>
+</tbody>
+
+</table><br>
+
+
+
+<h3>Change the status!</h3>
+<%= form_with model: @bookings do |f| %>
+<%= link_to 'Confirm', user_booking_confirm_path(user_id: @booking.user.id, booking_id: @booking.id), data: { "turbo-method": :put } %>
+<%= link_to 'Cancelled', user_booking_cancel_path(user_id: @booking.user.id, booking_id: @booking.id), data: { "turbo-method": :put } %>
+<% end %>

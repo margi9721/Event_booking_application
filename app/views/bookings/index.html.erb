@@ -1,0 +1,27 @@
+<h1><i>Book Your Shows!</i></h1>
+<h2>Booking Details:</h2>
+
+<table>
+<thead>
+  <th>User name</th>
+  <th>Event</th>
+  <th>Total Seats</th>
+  <th>Status</th>
+  <th>See Bookings</th>
+    
+</thead>
+<tbody>
+<% @bookings.each do |u| %>
+  <tr>
+    <td><%= u.user.name %></td>
+    <td><%= u.event.name %></td>
+    <td><%= u.capacity %></td>
+    <td><%= u.status %></td>
+    <td><%=link_to "View", bookings_show_path(u) %></td>    
+  </tr>
+  <% end %>
+</tbody>
+
+</table><br>
+
+

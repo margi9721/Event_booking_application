@@ -1,0 +1,17 @@
+<h2>New booking</h2>
+<div class="form">
+<%= form_with model: [ @user, @user.bookings.build ] do |f| %>
+
+  <div>
+    <%= f.label :capacity%><br>
+    <%= f.text_field :capacity %>
+  </div><br>
+    
+  <div>
+    <%= f.label :event_id %><br>
+    <%= collection_select( :booking, :event_id , Event.all, :id, :name) %>
+  </div><br>
+
+  <%= f.submit 'submit' %>
+  <% end %>  
+</div>
