@@ -1,0 +1,30 @@
+<h2>New User booking</h2>
+<div class="form">
+<%= form_with model: @user do |f| %>
+
+  <div>
+    <%= f.label :name%><br>
+    <%= f.text_field :name %>
+  </div><br>
+    
+  <div>
+    <%= f.label :phone %><br>
+     <%= f.text_field :phone %>
+  </div><br>
+
+   <div>
+    <%= f.label :email %><br>
+     <%= f.text_field :email %>
+  </div><br>
+
+  <div>
+    <%= f.label :role%><br>
+    <%= collection_select(:user, :role_ids, Role.all, :id, :name) %>
+  </div><br>
+
+  
+  <%= f.submit 'submit' %>
+  <% end %>  
+</div>
+
+
