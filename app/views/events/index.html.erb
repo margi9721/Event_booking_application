@@ -1,0 +1,35 @@
+<h1><i>Book Your Shows!</i></h1>
+<h2>Event Details</h2>
+<p></p>
+
+<table>
+<thead>
+    <th>Name</th>
+    <th>Start</th>
+    <th>End</th>
+    <th>Location</th>
+    <th>City</th>
+    <th>Available seats</th>
+    <th>Category</th>
+    
+</thead>
+<tbody>
+<% @events.each do |u| %>
+  <tr>
+      <td><%= u.name %></td>
+      <td><%= u.start_time %></td>
+      <td><%= u.end_time %></td>
+      <td><%= u.location.name %></td>
+      <td><%= u.location.city.name %></td>
+      <td><%= u.category.name %></td>
+      <td><%= u.location.capacity - u.bookings.sum(:capacity) %></td>
+      <td><%= link_to "Destroy", event_path(u), data: {
+                  turbo_method: :delete,
+                  turbo_confirm: "Are you sure?"
+                } %></ul></td>
+  </tr>
+  <% end %>
+</tbody>
+
+</table><br>
+<%=link_to "New event", new_event_path %>
