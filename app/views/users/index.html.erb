@@ -1,0 +1,26 @@
+<h1><i>Book Your Shows!</i></h1>
+<p>>>>>>> User Details:</p>
+
+<table>
+<thead>
+    <th>Name</th>
+    <th>Phone</th>
+    <th>Email</th>
+    <th>Role</th>
+    <th>New</th>
+</thead>
+<tbody>
+<% @users.each do |u| %>
+  <tr>
+      <td><%= u.name %></td>
+      <td><%= u.phone %></td>
+       <td><%= u.email %></td>
+      <td><%= u.roles.last.name %></td>
+      <td><%= link_to "Book",new_user_booking_path(u) %></td>
+  </tr>
+  <% end %>
+</tbody>
+
+</table><br>
+
+<%= link_to "Add User",new_user_path %>
