@@ -1,0 +1,16 @@
+
+<h2>City Details:</h2>
+
+<table>
+    <thead>
+      <th>Name</th> 
+    </thead>
+    <tbody>
+    <% @cities.each do |f| %>
+      <tr>
+        <td><%= f.name %></td>
+      </tr>
+      <% end %>
+    </tbody>
+</table>
+<%= link_to "New City", new_city_path %>
